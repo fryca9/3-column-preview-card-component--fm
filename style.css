@@ -1,0 +1,130 @@
+@import url("https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@700&family=Lexend+Deca&display=swap");
+
+:root {
+  --text-descr: hsla(0, 0%, 100%, 0.75);
+  --text-rest: hsl(0, 0%, 95%);
+
+  --sedans: hsl(31, 77%, 52%);
+  --suvs: hsl(184, 100%, 22%);
+  --luxury: hsl(179, 100%, 13%);
+}
+
+html {
+  font-family: "Lexend Deca", sans-serif;
+  font-size: 15px;
+  background-color: var(--text-rest);
+}
+
+body {
+  height: 100svh;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 70px;
+}
+
+.component {
+  --component-width: 900px;
+
+  margin-top: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  max-width: var(--component-width);
+}
+
+.car__card {
+  padding: 40px;
+  max-width: calc(var(--component-width) / 3);
+}
+
+.car__card .car__title {
+  font-family: "Big Shoulders Display", sans-serif;
+  text-transform: uppercase;
+  color: var(--text-rest);
+  font-size: 2.2rem;
+  margin: 20px 0;
+}
+
+.car__card .car__descr {
+  color: var(--text-descr);
+  line-height: 1.5rem;
+}
+
+.car__card .car__more {
+  margin-top: 70px;
+  padding: 13px 25px;
+  background-color: var(--text-rest);
+  border-radius: 100vh;
+  font-family: "Lexend Deca", sans-serif;
+  border: 2px solid var(--text-rest);
+}
+
+.car__card .car__more:hover {
+  cursor: pointer;
+  background-color: transparent;
+  color: var(--text-rest);
+  transition: all 0.2s linear;
+}
+
+.car__card.sedans {
+  background-color: var(--sedans);
+  border-radius: 10px 0 0 10px;
+}
+
+.sedans .car__more {
+  color: var(--sedans);
+}
+
+.car__card.suvs {
+  background-color: var(--suvs);
+}
+
+.suvs .car__more {
+  color: var(--suvs);
+}
+
+.car__card.luxury {
+  background-color: var(--luxury);
+  border-radius: 0 10px 10px 0;
+}
+
+.luxury .car__more {
+  color: var(--luxury);
+}
+
+.attribution {
+  font-size: 11px;
+  text-align: center;
+  margin-bottom: 70px;
+}
+.attribution a {
+  color: hsl(228, 45%, 44%);
+}
+
+@media (max-width: 950px) {
+  body {
+    height: auto;
+  }
+
+  .component {
+    flex-direction: column;
+    margin-inline: 20px;
+  }
+
+  .car__card.sedans {
+    border-radius: 10px 10px 0 0;
+  }
+
+  .car__card.luxury {
+    border-radius: 0 0 10px 10px;
+  }
+
+  .car__card .car__more {
+    margin-top: 20px;
+  }
+}
+
+/* TODO: clean the code */
