@@ -28,38 +28,38 @@ body {
 .component {
   --component-width: 900px;
 
-  margin-top: 40px;
+  max-width: var(--component-width);
+  margin-top: 50px;
   display: flex;
   align-items: center;
   justify-content: center;
-  max-width: var(--component-width);
 }
 
 .car__card {
-  padding: 40px;
   max-width: calc(var(--component-width) / 3);
+  padding: 40px;
 }
 
 .car__card .car__title {
+  margin: 20px 0;
   font-family: "Big Shoulders Display", sans-serif;
   text-transform: uppercase;
   color: var(--text-rest);
   font-size: 2.2rem;
-  margin: 20px 0;
 }
 
 .car__card .car__descr {
-  color: var(--text-descr);
   line-height: 1.5rem;
+  color: var(--text-descr);
 }
 
 .car__card .car__more {
   margin-top: 70px;
   padding: 13px 25px;
-  background-color: var(--text-rest);
-  border-radius: 100vh;
-  font-family: "Lexend Deca", sans-serif;
   border: 2px solid var(--text-rest);
+  border-radius: 100vh;
+  background-color: var(--text-rest);
+  font-family: "Lexend Deca", sans-serif;
 }
 
 .car__card .car__more:hover {
@@ -70,8 +70,8 @@ body {
 }
 
 .car__card.sedans {
-  background-color: var(--sedans);
   border-radius: 10px 0 0 10px;
+  background-color: var(--sedans);
 }
 
 .sedans .car__more {
@@ -87,8 +87,8 @@ body {
 }
 
 .car__card.luxury {
-  background-color: var(--luxury);
   border-radius: 0 10px 10px 0;
+  background-color: var(--luxury);
 }
 
 .luxury .car__more {
@@ -98,7 +98,7 @@ body {
 .attribution {
   font-size: 11px;
   text-align: center;
-  margin-bottom: 70px;
+  margin-bottom: 50px;
 }
 .attribution a {
   color: hsl(228, 45%, 44%);
@@ -126,5 +126,3 @@ body {
     margin-top: 20px;
   }
 }
-
-/* TODO: clean the code */
