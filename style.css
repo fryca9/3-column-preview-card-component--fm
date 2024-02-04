@@ -1,5 +1,97 @@
 @import url("https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@700&family=Lexend+Deca&display=swap");
 
+/* Box sizing rules */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Prevent font size inflation */
+html {
+  -moz-text-size-adjust: none;
+  -webkit-text-size-adjust: none;
+  text-size-adjust: none;
+}
+
+/* Remove default margin in favour of better control in authored CSS */
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+figure,
+blockquote,
+dl,
+dd {
+  margin-block-end: 0;
+}
+
+/* Remove list styles on ul, ol elements with a list role, which suggests default styling will be removed */
+ul[role="list"],
+ol[role="list"] {
+  list-style: none;
+}
+
+/* Set core body defaults */
+body {
+  min-height: 100vh;
+  line-height: 1.5;
+}
+
+/* Set shorter line heights on headings and interactive elements */
+h1,
+h2,
+h3,
+h4,
+button,
+input,
+label {
+  line-height: 1.1;
+}
+
+/* Balance text wrapping on headings */
+h1,
+h2,
+h3,
+h4 {
+  text-wrap: balance;
+}
+
+/* A elements that don't have a class get default styles */
+a:not([class]) {
+  text-decoration-skip-ink: auto;
+  color: currentColor;
+}
+
+/* Make images easier to work with */
+img,
+picture {
+  max-width: 100%;
+  display: block;
+}
+
+/* Inherit fonts for inputs and buttons */
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+/* Make sure textareas without a rows attribute are not tiny */
+textarea:not([rows]) {
+  min-height: 10em;
+}
+
+/* Anything that has been anchored to should have extra scroll margin */
+:target {
+  scroll-margin-block: 5ex;
+}
+
+/* -------------------------- */
+
 :root {
   --text-descr: hsla(0, 0%, 100%, 0.75);
   --text-rest: hsl(0, 0%, 95%);
@@ -11,37 +103,42 @@
 
 html {
   font-family: "Lexend Deca", sans-serif;
-  font-size: 15px;
   background-color: var(--text-rest);
 }
 
 body {
-  height: 100svh;
-  margin: 0;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 70px;
+  gap: 4.4rem;
+}
+
+p,
+a {
+  font-size: 0.9rem;
+}
+
+.sr-only {
+  position: absolute;
+  visibility: hidden;
 }
 
 .component {
-  --component-width: 900px;
+  --component-width: 60rem;
 
   max-width: var(--component-width);
-  margin-top: 50px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: 1fr;
 }
 
 .car__card {
-  max-width: calc(var(--component-width) / 3);
-  padding: 40px;
+  padding: 2.5rem;
 }
 
 .car__card .car__title {
-  margin: 20px 0;
+  margin: 1.4rem 0;
   font-family: "Big Shoulders Display", sans-serif;
   text-transform: uppercase;
   color: var(--text-rest);
@@ -54,19 +151,26 @@ body {
 }
 
 .car__card .car__more {
-  margin-top: 70px;
-  padding: 13px 25px;
+  margin-top: 2rem;
+  padding: 0.8em 1.2em;
   border: 2px solid var(--text-rest);
   border-radius: 100vh;
   background-color: var(--text-rest);
+}
+
+.car__more > a {
+  text-decoration: none;
   font-family: "Lexend Deca", sans-serif;
 }
 
-.car__card .car__more:hover {
+.car__more:hover {
   cursor: pointer;
   background-color: transparent;
-  color: var(--text-rest);
   transition: all 0.2s linear;
+}
+
+.car__more:hover > a {
+  color: var(--text-rest);
 }
 
 .car__card.sedans {
@@ -74,7 +178,7 @@ body {
   background-color: var(--sedans);
 }
 
-.sedans .car__more {
+.sedans a {
   color: var(--sedans);
 }
 
@@ -82,7 +186,7 @@ body {
   background-color: var(--suvs);
 }
 
-.suvs .car__more {
+.suvs a {
   color: var(--suvs);
 }
 
@@ -91,27 +195,26 @@ body {
   background-color: var(--luxury);
 }
 
-.luxury .car__more {
+.luxury a {
   color: var(--luxury);
 }
 
 .attribution {
-  font-size: 11px;
+  font-size: 0.8rem;
   text-align: center;
-  margin-bottom: 50px;
 }
 .attribution a {
   color: hsl(228, 45%, 44%);
 }
 
-@media (max-width: 950px) {
+@media (max-width: 40rem) {
   body {
     height: auto;
   }
 
   .component {
-    flex-direction: column;
-    margin-inline: 20px;
+    grid-template-rows: repeat(3, 1fr);
+    margin: 4rem 0;
   }
 
   .car__card.sedans {
@@ -123,6 +226,10 @@ body {
   }
 
   .car__card .car__more {
-    margin-top: 20px;
+    margin-top: 1.6rem;
+  }
+
+  .attribution {
+    margin-bottom: 2rem;
   }
 }
